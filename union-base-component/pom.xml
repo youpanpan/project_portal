@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.chengxuunion</groupId>
+    <artifactId>union-base-component</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>union-base-component</name>
+    <description>基础组件</description>
+    
+    <!-- 依赖的父项目 -->
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.0.6.RELEASE</version>
+	    <relativePath/> <!-- lookup parent from repository -->
+	</parent>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+    
+        <!--工具类引入-->
+        <dependency>
+            <groupId>com.chengxuunion</groupId>
+            <artifactId>union-commons-util</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <!-- spring-boot,spring-context,spring-beans -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        
+        <!-- SMTP发送邮件 -->
+	    <dependency>
+	        <groupId>javax.mail</groupId>
+	        <artifactId>mail</artifactId>
+	        <version>1.4.7</version>
+	    </dependency>
+        
+        <!-- 阿里云短信发送接口 -->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        
+        <!-- 阿里云OSS -->
+        <dependency>
+		    <groupId>com.aliyun.oss</groupId>
+		    <artifactId>aliyun-sdk-oss</artifactId>
+		    <version>2.8.3</version>
+		</dependency>
+		
+		<!-- 阿里云邮件推送 -->
+		<dependency>
+		    <groupId>com.aliyun</groupId>
+		    <artifactId>aliyun-java-sdk-dm</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
+
+        <!-- MQTT开发包 -->
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+		
+		<!-- 测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+    </dependencies>
+    
+    <repositories>
+	     <repository>
+	             <id>sonatype-nexus-staging</id>
+	             <name>Sonatype Nexus Staging</name>
+	             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+	             <releases>
+	                     <enabled>true</enabled>
+	             </releases>
+	             <snapshots>
+	                     <enabled>true</enabled>
+	             </snapshots>
+	     </repository>
+	</repositories>
+	
+	<build>
+        <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <configuration>
+                   <source>1.8</source>
+                   <target>1.8</target>
+               </configuration>
+             </plugin>
+        </plugins>
+    </build>
+	
+	<!-- deploy到仓库中配置 -->
+  <distributionManagement>
+    <repository>
+      <id>nexus</id>
+      <name>Releases</name>
+      <url>http://localhost:8081/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus</id>
+      <name>Snapshot</name>
+      <url>http://localhost:8081/repository/maven-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+    
+</project>

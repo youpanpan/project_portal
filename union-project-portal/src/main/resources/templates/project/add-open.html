@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout-open">
+<div th:fragment="content">
+
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- 表单 -->
+                <form class="layui-form" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="projectName" required  lay-verify="required"
+                                   placeholder="请输入项目名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="projectUrl" required  lay-verify="required"
+                                   placeholder="请输入项目地址" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目图片</label>
+                        <div class="layui-input-block">
+                            <button type="button" class="layui-btn" id="project_file_btn">
+                                <i class="layui-icon">&#xe67c;</i>上传项目图片
+                            </button>
+                            <button class="hide" id="upload_btn"></button>
+                            <input type="hidden" name="projectImage" id="projectImage" value=""/>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">背景颜色</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bgColor" required  lay-verify="required"
+                                   placeholder="请输入背景颜色，例#06B572" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目描述</label>
+                        <div class="layui-input-block">
+                            <textarea name="projectDesc" required  lay-verify="required"
+                                   placeholder="请输入项目描述" autocomplete="off" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderNum" required  lay-verify="required|number"
+                                   placeholder="请输入排序号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <input type="hidden" name="status" value="1"/>
+
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="save-project-filter" id="save_project">保存</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div>
+
+</html>
+
+<script th:src="${'/static/js/project/add-open.js'}"></script>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengxuunion.projectportal.business.email.dao.EmailDao">
+
+	<!-- 邮件结果集 -->
+	<resultMap id="EmailResult" type="com.chengxuunion.projectportal.business.email.model.Email" >
+		<id property="id" column="id"/>
+		<result property="email" column="email"/>
+		<result property="type" column="type"/>
+		<result property="token" column="token"/>
+		<result property="code" column="code"/>
+		<result property="createUser" column="createuser"/>
+		<result property="createDate" column="createdate" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="updateUser" column="updateuser"/>
+		<result property="updateDate" column="updatedate" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result property="orderNum" column="ordernum"/>
+		<result property="state" column="state"/>
+	</resultMap>
+
+	<!-- 所有列名 -->
+	<sql id="ALL_COLUMNS">
+		id,
+		email,
+		type,
+		token,
+		code,
+		createuser,
+		createdate,
+		updateuser,
+		updatedate,
+		ordernum,
+		state
+	</sql>
+	
+	<!-- 查询邮件列表 -->
+	<select id="queryRecentlyEmails" resultMap="EmailResult">
+		SELECT 
+			<include refid="ALL_COLUMNS"/>
+		FROM 
+			email
+		<where>
+			AND email = #{email}
+			<if test="state != null and state != ''">
+				AND state = #{state}
+			</if>
+			<if test="type != null and type != ''">
+				AND type = #{type}
+			</if>
+			<if test="startDate != null">
+				<![CDATA[
+					AND createdate >= #{startDate}
+				]]>
+			</if>
+			<if test="endDate != null">
+				<![CDATA[
+					AND createdate <= #{endDate}
+				]]>
+			</if>
+		</where>
+		ORDER BY createdate DESC
+	</select>
+	
+	<!-- 添加邮件 -->
+	<insert id="saveEmail" parameterType="com.chengxuunion.projectportal.business.email.model.Email">
+		INSERT INTO 
+			email
+		<trim prefix=" (" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="email != null and email != ''">email,</if>
+			<if test="type != null and type != ''">type,</if>
+			<if test="token != null and token != ''">token,</if>
+			<if test="code != null and code != ''">code,</if>
+			<if test="createUser != null and createUser != ''">createuser,</if>
+			<if test="createDate != null">createdate,</if>
+			<if test="updateUser != null and updateUser != ''">updateuser,</if>
+			<if test="updateDate != null">updatedate,</if>
+			<if test="orderNum != null">ordernum,</if>
+			<if test="state != null and state != ''">state,</if>
+		</trim>
+		<trim prefix=" VALUES (" suffix=")" suffixOverrides=",">
+			<if test="id != null">#{id},</if>
+			<if test="email != null and email != ''">#{email},</if>
+			<if test="type != null and type != ''">#{type},</if>
+			<if test="token != null and token != ''">#{token},</if>
+			<if test="code != null and code != ''">#{code},</if>
+			<if test="createUser != null and createUser != ''">#{createUser},</if>
+			<if test="createDate != null">#{createDate},</if>
+			<if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+			<if test="updateDate != null">#{updateDate},</if>
+			<if test="orderNum != null">#{orderNum},</if>
+			<if test="state != null and state != ''">#{state},</if>
+		</trim>
+	</insert>
+	
+	<!-- 更新邮件信息 -->
+	<update id="updateEmail"  parameterType="com.chengxuunion.projectportal.business.email.model.Email">
+		UPDATE email
+		<set>
+			<if test="updateDate != null">updatedate=#{updateDate},</if>
+			<if test="state != null and state != ''">state=#{state},</if>
+		</set>
+		WHERE 
+			email = #{email} 
+			AND type = #{type}
+	</update>
+	
+</mapper>

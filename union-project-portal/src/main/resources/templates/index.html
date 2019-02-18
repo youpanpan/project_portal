@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout-open">
+	<div th:fragment="content">
+	<link rel="stylesheet" th:href="${'/static/css/index/index.css'}">
+	
+		<div class="content-container">  
+	        <div class="header-container clearfix">
+	           <div class="nav navbar-nav">
+	               <ul>
+	                   <li class="skin-container">
+                           <a href="javascript:void(0);" class="change-skin"><i class="fa fa-desktop"></i>&nbsp;<span th:text="#{common.changeSkin}">换肤</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
+                           <div id="container_style" class="container-menu " style="height: auto;">
+                               <div class="style-box">
+                                   <div class="box-content">
+                                       <a href="#">
+                                           <img src="/static/images/skins/style-gray.png">
+                                       </a>
+                                       <p>
+                                           <input type="radio" name="gd-style" value="default" id="skin_white">
+                                           <label for="skin_white" class="margin-left-5" th:text="#{common.gray}">灰色（默认）</label>
+                                       </p>
+                                   </div>
+                                   <div class="box-content">
+                                       <a href="#">
+                                           <img src="/static/images/skins/style-black.png">
+                                       </a>
+                                       <p>
+                                           <input type="radio" name="gd-style" value="black" id="skin_black">
+                                           <label for="skin_black" class="margin-left-5" th:text="#{common.black}">黑色</label>
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+                       </li>
+	                   <li class="language-container">
+                           <a href="javascript:void(0);"><i class="fa fa-language"></i>&nbsp;<span th:text="${session.language =='zh_CN'?'中文':'English'}">中文</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
+                           <ul class="language-list">
+                               <li class="lang-link" data-language="zh_CN">中文</li>
+                               <li class="lang-link" data-language="en_US">English</li>
+                           </ul>
+                       </li>
+                       <!-- <li>
+                           <a href="javascript:void(0);"><i class="fa fa-thumbs-o-up"></i>&nbsp;<span th:text="#{common.projectRecommend}">项目推荐</span></a>
+                       </li> -->
+	               </ul>
+	           </div>
+			   <input type="hidden" id="islogin" th:value="${session.user!=null}"/>
+	           <div th:if="${session.user == null}" class="nav navbar-nav navbar-right">
+				   <div class="login-register-container">
+		           <a href="/login"><span class="link login-title" th:text="#{common.login}">登录</span></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		           <a href="/register"><span class="link register-title" th:text="#{common.register}">注册</span></a>
+				   </div>
+	           </div>
+	           <div th:if="${session.user != null}"  class="nav navbar-nav navbar-right common-topbar-user-info">
+				   <input type="hidden" id="userId" th:value="${session.user.id}"/>
+		           <div class="topbar-info-dropdown">
+		           
+		               <div class="topbar-info-dropdown-toggle topbar-btn">
+                           <img th:src="${'/user/manager/download/' + session.user.id}" class="nav-user-photo-mini"/>
+		                   <span th:text="${session.user.userName}"></span>&nbsp;<i class="fa fa-caret-down"></i>
+		               </div>
+		               <div class="topbar-info-dropdown-memu topbar-align-right">
+	                       <div class="topbar-user-info">
+	                           <img class="nav-user-photo" th:src="${'/user/manager/download/' + session.user.id}" src="assets/images/avatars/user.jpg" th:alt="头像"/>
+	                           <p class="topbar-user-email">
+	                               <span th:title="${session.user.userName }" th:text="${session.user.userName}">游盼盼</span>
+	                           </p>
+	                       </div>
+	                       <div class="topbar-user-entrance-list">
+                               <a class="topbar-user-entrance user-basic-info" href="javascript:void(0);" th:if="${!session.user.admin}">
+                                   <span class="topbar-user-entrance-logo fa fa-user"></span>
+                                   <span th:text="#{common.profile}">基本资料</span>
+                               </a>
+							   <a class="topbar-user-entrance" href="/admin" target="_blank"  th:if="${session.user.admin}">
+								   <span class="topbar-user-entrance-logo fa fa-user"></span>
+								   <span th:text="#{common.managerCenter}">管理中心</span>
+							   </a>
+                               <a class="topbar-user-entrance update-password" href="javascript:void(0);" >
+                                   <span class="topbar-user-entrance-logo fa fa-key"></span>
+                                   <span th:text="#{common.updatePassword}">修改密码</span>
+                               </a>
+                               <a class="topbar-user-entrance logout-link" href="javascript:void(0);" >
+                                   <span class="topbar-user-entrance-logo fa fa-sign-out"></span>
+                                   <span th:text="#{common.logout}">退出</span>
+                               </a>
+	                       </div>
+	                   </div>
+                   </div>
+               </div>
+	        </div>
+
+
+
+            <div class="grid-container">
+                <div class="system-name" th:text="#{common.systemName}">项目门户</div>
+				<div class="layui-carousel" id="project_carousel">
+			        <div carousel-item id="project_list">
+                        <!--<div class="layui-row">
+						    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color1" href="http://www.baidu.com/1">
+		                        <img src="http://localhost:83/project/manager/download/272493379261714432" class="project-image"/>
+		                        <span class="project-name">Jenkins</span>
+		                    </a>   
+		                    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color2" href="http://www.baidu.com/2">
+		                        <img src="http://localhost:83/project/manager/download/272828829302374400" class="project-image"/>
+		                        <span class="project-name">Redis管理</span>
+		                    </a>
+		                    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color3" href="http://www.baidu.com/3">
+		                        <img src="http://localhost:83/project/manager/download/272825229087981568" class="project-image"/>
+		                        <span class="project-name">代码生成平台</span>
+		                    </a> 
+		                    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color3" href="http://www.baidu.com/6">
+                                <img src="http://localhost:83/project/manager/download/272824180742668288" class="project-image"/>
+                                <span class="project-name">Gitlab</span>
+                            </a> 
+		                    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color1" href="http://www.baidu.com/4">
+		                        <img src="http://localhost:83/project/manager/download/272824795036237824" class="project-image"/>
+		                        <span class="project-name">程序分享平台</span>
+		                    </a>   
+		                    <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color2" href="http://www.baidu.com/5">
+                                <img src="http://localhost:83/project/manager/download/272825470281433088" class="project-image"/>
+                                <span class="project-name">nexus</span>
+                            </a>
+	                    </div>
+	                    <div class="layui-row"  >
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color1" href="http://www.baidu.com">
+                                <img src="http://localhost:83/project/manager/download/272827019871240192" class="project-image"/>
+                                <span class="project-name">Docker管理</span>
+                            </a>   
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color2" href="http://www.baidu.com">
+                                <img src="http://localhost:83/project/manager/download/272827455491653632" class="project-image"/>
+                                <span class="project-name">禅道</span>
+                            </a>
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color3" href="http://www.baidu.com">
+                                <img src="https://redis.io/images/redis-white.png" class="project-image"/>
+                                <span class="project-name">项目名称</span>
+                            </a> 
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color1" href="http://www.baidu.com">
+                                <img src="https://redis.io/images/redis-white.png" class="project-image"/>
+                                <span class="project-name">项目名称</span>
+                            </a>   
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color2" href="http://www.baidu.com">
+                                <img src="https://redis.io/images/redis-white.png" class="project-image"/>
+                                <span class="project-name">项目名称</span>
+                            </a>
+                            <a class="layui-col-xs6 layui-col-sm6 layui-col-md4 project-item bg-color3" href="http://www.baidu.com">
+                                <img src="https://redis.io/images/redis-white.png" class="project-image"/>
+                                <span class="project-name">项目名称</span>
+                            </a> 
+                        </div>-->
+                    </div>
+					   
+				</div>
+			</div>
+			
+			<!--/* 尾部 */-->
+            <div class="footer">
+                <ul>
+                    <li>2019 ©<a href="http://www.chengxuunion.com/" target="_blank">编程之道</a></li>
+                </ul>
+            </div>
+		</div>
+		
+	</div>
+	
+</html>
+
+<script th:src="${'/static/js/index/index.js'}"></script>

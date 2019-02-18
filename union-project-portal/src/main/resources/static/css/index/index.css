@@ -1,0 +1,326 @@
+a:link,a:visited ,a:hover,a:active   {text-decoration: none;color: #fff;}
+html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/*------------------------ 头部--------------------------------------*/
+.header-container{
+	font-size: 14px;
+	/*color: #777;
+	background-color: #e6e6e6;*/
+}
+
+.header-container .link {
+	cursor: pointer;
+}
+
+.header-container .link:hover{
+	text-decoration: underline;
+}
+
+.header-container .nav-user-photo{
+	width: 70px;
+	height: 70px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.header-container .nav-user-photo-mini{
+    width: 19px;
+    height: 19px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.header-container .login-register-container {
+    padding: 9px 23px;
+    margin-right: 40px;
+}
+
+.nav a{
+	font-size: 14px;
+	/*color: #777;*/
+}
+
+.navbar-right{
+	float: right!important;
+	margin-right: 0px;
+}
+
+.navbar-nav ul{
+	padding-left: 43px;
+}
+
+.navbar-nav ul li {
+    float: left;
+    padding: 9px 23px;
+}
+
+.margin-left-5 {
+    margin-left: 5px !important;
+}
+
+.language-container, .skin-container{
+    position: relative;
+}
+
+
+.language-container .language-list{
+    right: 0;
+}
+
+.skin-container .container-menu {
+    left: 0;
+}
+
+.language-container .language-list li{
+    width: 100%;
+}
+
+.language-container:hover .language-list , .skin-container:hover .container-menu{
+    visibility: visible;
+    opacity: 1
+}
+
+.style-box {
+    min-height: 140px;
+    padding: 10px;
+}
+
+.style-box .box-content {
+    display: inline-block;
+    max-width: 260px;
+    text-align: center;
+    padding: 10px;
+}
+
+.style-box a, .style-box img {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.style-box a {
+    display: inline-block;
+    padding: 1px;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,.35), 0 2px 20px 2px rgba(119,115,115,0.5);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,.35),0 2px 20px 2px rgba(119,115,115,0.5);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,.35), 0 2px 20px 2px rgba(119,115,115,0.5);
+}
+
+.style-box img {
+    max-height: 120px;
+}
+
+.style-box .box-content p {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+/*-------------------------登录成功用户信息--------------------------*/
+.common-topbar-user-info{
+    float: left;
+}
+
+.topbar-info-dropdown {
+    position: relative;
+    padding-right: 30px;
+}
+.topbar-info-dropdown .topbar-info-dropdown-toggle {
+    color: #777;
+    cursor: pointer;
+    padding: 8px 23px;
+}
+
+.language-container .language-list, .skin-container .container-menu, .topbar-info-dropdown-memu{
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    float: left;
+    list-style: none;
+    /*background-color: #e6e6e6;*/
+    background-clip: padding-box;
+    z-index: 999;
+    font-size: 1.4rem;
+    min-width: 100%;
+    margin: 0;
+    border: none;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    -webkit-transition: opacity .15s, visibility 0s .15s;
+    transition: opacity .15s, visibility 0s .15s;
+    opacity: 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.topbar-info-dropdown-memu
+ {
+    right: 0;
+}
+
+.topbar-info-dropdown:hover .topbar-info-dropdown-memu {
+    visibility: visible;
+    opacity: 1
+}
+
+.common-topbar-user-info .topbar-user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    vertical-align: middle
+}
+
+.common-topbar-user-info .topbar-user-info {
+    text-align: center;
+    padding-top: 16px;
+    /*border-bottom: 1px solid #eaeaea*/
+}
+
+.common-topbar-user-info .topbar-user-email {
+    margin: 8px 0
+}
+
+.common-topbar-user-info .topbar-user-entrance-list {
+    overflow: hidden;
+    width: 300px;
+    margin: 8px 0;
+}
+
+.common-topbar-user-info .topbar-user-entrance-list .topbar-user-entrance span {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: normal
+}
+
+.common-topbar-user-info .topbar-user-entrance-list .topbar-user-entrance span.topbar-user-entrance-logo
+{
+    line-height: 40px
+}
+
+.common-topbar-user-info .topbar-user-entrance {
+    width: 100px;
+    height: 80px;
+    float: left;
+    text-align: center;
+    /*color: #333;*/
+    -webkit-transition: background .15s;
+    transition: background .15s;
+    border-radius: 2px
+}
+
+.common-topbar-user-info .topbar-user-entrance:hover {
+    /*background: #f5f5f5;*/
+    text-decoration: none
+}
+
+.common-topbar-user-info .topbar-user-entrance-logo {
+    font-size: 20px;
+    margin: 8px auto 4px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    /*color: #333;*/
+}
+
+/*-------------------------/登录成功用户信息--------------------------*/
+/*------------------------ /头部--------------------------------------*/
+
+/*------------------------ 轮播样式重置--------------------------------------*/
+.layui-carousel>[carousel-item]:before{
+	content: '';
+}
+/*------------------------ /轮播样式重置--------------------------------------*/
+
+/*------------------------ 内容--------------------------------------*/
+.content-container{
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    /*background: url(../../images/index/anli_1920.jpg) center no-repeat fixed;
+    background-size: cover;*/
+}
+
+.grid-container {
+	padding-top: 100px;
+	margin: 0 auto;
+	max-width: 960px;
+}
+
+.system-name{
+    font-size: 32px;
+    /*color: #333;*/
+    padding: 20px 0 30px 0;
+    text-align: center;
+}
+
+.project-item, .add-project-item{
+	height: 214px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.project-item .project-image{
+    margin: 20px auto;
+    width: 160px;
+    height: 120px;
+    display: block;
+}
+
+.project-item .project-name{
+	font-size: 24px;
+}
+
+.add-project-icon{
+    width: 100%;
+    height: 100%;
+}
+
+.layui-carousel,.layui-carousel>[carousel-item]>*{
+    background-color: transparent;
+}
+/*------------------------ /内容--------------------------------------*/
+
+.footer{
+	width: 100%;
+	padding-top: 60px;
+	font-size: 16px;
+}
+
+.footer ul{
+	width: 180px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footer li{
+    width: 180px;
+	
+}
+
+.footer,.footer a{
+	color: #333;
+}
+
+.footer a:hover {
+    color: #337ab7;
+}

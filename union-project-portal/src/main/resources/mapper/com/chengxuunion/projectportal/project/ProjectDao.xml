@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chengxuunion.projectportal.business.project.dao.ProjectDao">
+
+    <!-- 结果集 -->
+    <resultMap id="ProjectResultMap" type="com.chengxuunion.projectportal.business.project.model.Project">
+    
+        <id column="id" property="id" />
+        
+        
+        <result column="project_name" property="projectName" />
+        
+        <result column="project_desc" property="projectDesc" />
+        
+        <result column="project_url" property="projectUrl" />
+        
+        <result column="project_image" property="projectImage" />
+        
+        <result column="create_date" property="createDate" />
+        
+        <result column="status" property="status" />
+        
+        <result column="order_num" property="orderNum" />
+
+        <result column="bg_color" property="bgColor"/>
+
+        <result column="create_user_id" property="createUserId"/>
+
+        <result column="official" property="official"/>
+
+        <association property="user" javaType="com.chengxuunion.projectportal.business.user.model.User">
+            <id column="create_user_id" property="id"/>
+            <result column="user_name" property="userName"/>
+        </association>
+    
+    </resultMap>
+
+    <!-- 所有列名 -->
+    <sql id="ALL_COLUMN">
+        t.id,
+        t.project_name,
+        t.project_desc,
+        t.project_url,
+        t.project_image,
+        t.create_date,
+        t.status,
+        t.order_num,
+        t.bg_color,
+        t.create_user_id,
+        t.official
+        
+    </sql>
+
+    <!-- 查询项目列表 -->
+    <select id="listProject" resultMap="ProjectResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+            ,u.user_name
+        FROM
+            project t
+        LEFT JOIN user u ON u.id = t.create_user_id
+        WHERE 1=1
+        <if test="projectName != null and projectName != ''">
+            AND t.project_name LIKE '%' #{projectName} '%'
+        </if>
+        <if test="official != null and official != ''">
+            AND t.official = #{official}
+        </if>
+        <if test="status != null and status != ''">
+            AND t.status = #{status}
+        </if>
+        <if test="userId != null">
+            AND t.create_user_id = #{userId}
+        </if>
+        ORDER BY t.official,t.order_num ASC
+    </select>
+
+    <!-- 根据主键查询单个项目对象 -->
+    <select id="getProject" resultMap="ProjectResultMap">
+        SELECT
+            <include refid="ALL_COLUMN"/>
+        FROM
+            project t
+        WHERE
+            t.id = #{id}
+    </select>
+
+    <!-- 保存项目对象 -->
+    <insert id="saveProject" parameterType="com.chengxuunion.projectportal.business.project.model.Project">
+        INSERT INTO
+            project
+
+        <trim prefix=" ( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">id,</if>
+            <if test="projectName != null and projectName != ''">project_name,</if>
+            <if test="projectDesc != null and projectDesc != ''">project_desc,</if>
+            <if test="projectUrl != null and projectUrl != ''">project_url,</if>
+            <if test="projectImage != null and projectImage != ''">project_image,</if>
+            <if test="createDate != null">create_date,</if>
+            <if test="status != null and status != ''">status,</if>
+            <if test="orderNum != null">order_num,</if>
+            <if test="bgColor != null and bgColor != ''">bg_color,</if>
+            <if test="official != null and official != ''">official,</if>
+            <if test="createUserId != null">create_user_id,</if>
+        
+        </trim>
+        <trim prefix=" VALUES( " suffix=" ) "  suffixOverrides=",">
+        
+            <if test="id != null">#{id},</if>
+            <if test="projectName != null and projectName != ''">#{projectName},</if>
+            <if test="projectDesc != null and projectDesc != ''">#{projectDesc},</if>
+            <if test="projectUrl != null and projectUrl != ''">#{projectUrl},</if>
+            <if test="projectImage != null and projectImage != ''">#{projectImage},</if>
+            <if test="createDate != null">#{createDate},</if>
+            <if test="status != null and status != ''">#{status},</if>
+            <if test="orderNum != null">#{orderNum},</if>
+            <if test="bgColor != null and bgColor != ''">#{bgColor},</if>
+            <if test="official != null and official != ''">#{official},</if>
+            <if test="createUserId != null">#{createUserId},</if>
+        
+        </trim>
+    </insert>
+
+    <!-- 更新项目对象 -->
+    <update id="updateProject" parameterType="com.chengxuunion.projectportal.business.project.model.Project">
+        UPDATE
+            project
+        <set>
+
+            <if test="projectName != null and projectName != ''">project_name = #{projectName},</if>
+
+            <if test="projectDesc != null and projectDesc != ''">project_desc = #{projectDesc},</if>
+
+            <if test="projectUrl != null and projectUrl != ''">project_url = #{projectUrl},</if>
+
+            <if test="projectImage != null and projectImage != ''">project_image = #{projectImage},</if>
+
+            <if test="createDate != null">create_date = #{createDate},</if>
+
+            <if test="status != null and status != ''">status = #{status},</if>
+
+            <if test="orderNum != null">order_num = #{orderNum},</if>
+
+            <if test="bgColor != null and bgColor != ''">bg_color = #{bgColor},</if>
+
+            <if test="official != null and official != ''">official = #{official},</if>
+
+        </set>
+        WHERE
+            id = #{id}
+    </update>
+
+    <!-- 根据主键删除项目 -->
+    <delete id="deleteProject">
+        DELETE FROM
+            project
+        WHERE
+            id = #{id}
+    </delete>
+
+</mapper>

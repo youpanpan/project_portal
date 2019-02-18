@@ -1,0 +1,194 @@
+.j-search-form-bar .j-form-group {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.j-search-form-bar .j-form-btn-group{
+    float: right;
+}
+
+.j-search-form-bar .j-form-label {
+    padding: 9px 0;
+    width: auto;
+    display: inline-block;
+}
+
+.j-search-form-bar .j-input-block {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.j-search-form-bar .j-w-150{
+    width: 150px;
+}
+
+.j-search-form-bar .j-w-200{
+    width: 200px;
+}
+
+.j-back-bar{
+    padding-bottom: 8px;
+}
+
+.table-oper{
+    padding-right: 8px;
+}
+a.table-oper:link,a.table-oper:visited,a.table-oper:hover,a.table-oper:active{
+    text-decoration: none;
+}
+
+a.table-link{
+    color: #4C8FBD;
+}
+
+img.table-img{
+    width: 60px;
+    max-height: 60px;
+}
+
+img.form-img{
+    margin-top: 12px;
+    width: 100px;
+    max-height: 100px;
+}
+
+.layui-form-label{
+    width: 100px;
+}
+
+.hide{
+    display: none;
+}
+
+.private-type{
+    color: #DD5A43!important;
+}
+
+.public-type{
+    color: #69AA46!important;
+}
+
+ /* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+li{list-style:none}
+
+img{vertical-align:top;border:none}
+
+.form-control{
+    font-size: 1.6rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+.ft24{
+    font-size: 24px;
+}
+.ft16{
+    font-size: 16px;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.bg-white{
+    background-color: #fff; 
+}
+
+.visible{
+    visibility: visible;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.clearfix:after {
+   content:""; 
+   display: block; 
+   clear:both; 
+}
+
+.red{
+    color: #dc3545;
+}
+
+.mg-top12{
+    margin-top: 12px;
+}
+
+.h3, h3 {
+    font-size: 1.6rem;
+}
+
+label {
+  font-weight: normal;
+}
+
+.center{
+    text-align: center;
+}
+
+.tx-right{
+    text-align: right;
+}
+
+.th5{
+    width: 5%;
+}
+
+.th10{
+    width: 10%;
+}
+
+.th15{
+    width: 15%;
+}
+
+.th20{
+    width: 20%;
+}
+
+.th25{
+    width: 25%;
+}
+
+.th30{
+    width: 30%;
+}
+
+.th35{
+    width: 35%;
+}
+
+.th40{
+    width: 40%;
+}
+
+.no-data{
+    color: #d9534f;
+}
+
+a:link {text-decoration: none;color: #333;}    /* 未被访问的链接 */
+a:visited {text-decoration: none;color: #333;} /* 已被访问的链接 */
+a:hover {text-decoration: none;color: #337ab7;}   /* 鼠标指针移动到链接上 */
+a:active {text-decoration: none;color: #337ab7;}  /* 正在被点击的链接 */
+
+.carousel-control.right,.carousel-control.left{
+    background-image:none;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout">
+	<div th:fragment="content">
+
+		<!-- <link rel="stylesheet" th:href="${'/static/css/index/index.css'}"> -->
+
+		<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="ace-icon fa fa-home home-icon"></i>
+					<a href="/" th:text="#{common.home}">首页</a>
+				</li>
+				<li class="active" th:text="#{common.dashboard}">面板</li>
+			</ul><!-- /.breadcrumb -->
+
+		</div>
+
+		<div class="page-content">
+			<div class="row">
+				<div class="col-xs-12">
+
+				</div>
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div>
+</html>
+
+<script th:src="${'/static/js/echarts.min.js'}"></script>
+<!-- <script th:src="${'/static/js/index/index.js'}"></script> -->

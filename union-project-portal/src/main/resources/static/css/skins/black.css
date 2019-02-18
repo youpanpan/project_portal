@@ -1,0 +1,61 @@
+/*-------头部颜色、导航链接颜色、用户姓名颜色------*/
+.header-container, .nav a, .topbar-info-dropdown .topbar-info-dropdown-toggle{
+    color: #fefefe;
+}
+
+/*-------选择皮肤、语言背景色------*/
+.language-container .language-list, .skin-container .container-menu{
+    background-color: #666;
+}
+
+/*-------皮肤选中颜色------*/
+.box-content.active img{
+    border: 1px solid #ED207B;
+}
+.box-content.active p{
+    color:  #ED207B;
+}
+
+/*-------语言选中颜色------*/
+.language-container .language-list li:hover{
+    background-color: #333;
+}
+
+/*-------用户信息下拉背景颜色------*/
+.header-container, .topbar-info-dropdown-memu {
+    background-color: #333;
+}
+
+/*-------用户信息下拉border颜色------*/
+.common-topbar-user-info .topbar-user-info {
+    border-bottom: 1px solid #666;
+}
+
+/*-------用户信息下拉字体、图标颜色------*/
+.common-topbar-user-info .topbar-user-entrance,
+.common-topbar-user-info .topbar-user-entrance-logo
+{
+    color: #fefefe;
+}
+
+/*-------用户信息下拉图标hover背景颜色------*/
+.common-topbar-user-info .topbar-user-entrance:hover {
+    background-color: #666;
+}
+
+/*-------系统名称颜色------*/
+.system-name {
+    color: #fefefe;
+}
+
+/*-------内容区域背景------*/
+.content-container{
+    background-color: #000;
+}
+
+.footer,.footer a{
+    color: #eee;
+}
+.footer a:hover {
+    color: #337ab7;
+}

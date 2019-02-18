@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="public/layout-open">
+<div th:fragment="content">
+
+    <div class="page-content">
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                <!-- 表单 -->
+                <form class="layui-form" action="">
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="projectName"
+                                    th:value="${project.projectName}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入项目名称" autocomplete="off" class="layui-input" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="projectUrl"
+                                    th:value="${project.projectUrl}"
+                                    required  lay-verify="required"
+                                   placeholder="请输入项目地址" autocomplete="off" class="layui-input" readonly>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目图片</label>
+                        <div class="layui-input-block">
+                            <div class="img-container">
+                                <img th:src="${'/project/manager/download/'+ project.id}" alt="项目图片" class="form-img"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">背景颜色</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bgColor" required  lay-verify="required"
+                                   th:value="${project.bgColor}"
+                                   placeholder="请输入背景颜色，例#06B572" autocomplete="off" class="layui-input" readonly>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">项目描述</label>
+                        <div class="layui-input-block">
+                            <textarea name="projectDesc" required  lay-verify="required"
+                                    th:text="${project.projectDesc}"
+                                   placeholder="请输入项目描述" autocomplete="off" class="layui-textarea" readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">排序号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderNum"
+                                    th:value="${project.orderNum}"
+                                    required  lay-verify="required|number"
+                                   placeholder="请输入排序号" autocomplete="off" class="layui-input" readonly>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.page-content -->
+</div>
+
+</html>
+
+<script th:src="${'/static/js/project/detail.js'}"></script>
