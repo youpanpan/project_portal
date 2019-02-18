@@ -50,14 +50,17 @@
 2.登录/注册  
 ![登录](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%99%BB%E5%BD%95.png?raw=true)   
 ![注册](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E6%B3%A8%E5%86%8C.png?raw=true)   
+
 3.管理自己的项目    
 ![管理项目](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%99%BB%E5%BD%95%E5%90%8E.png?raw=true)  
+
 在项目上鼠标右键，出现3个操作：查看、编辑、删除  
 ![鼠标右键](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E9%BC%A0%E6%A0%87%E5%8F%B3%E9%94%AE.png?raw=true)   
+
 4.管理员界面  
 ![管理员界面](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png?raw=true)  
 5.项目管理  
-管理系统已存在的项目
+管理系统已存在的项目  
 6.权限管理  
 - 用户管理  
 管理系统用户，用户不允许注册，只能通过管理员添加  
