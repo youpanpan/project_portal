@@ -24,7 +24,7 @@
 2.编译打包项目union-commons-util  
 `mvn clean install`  
 
-3. 编译打包项目union-base-component  
+3.编译打包项目union-base-component  
 `mvn clean install`  
 
 4.配置邮件发送信息  
@@ -44,25 +44,26 @@
 
 ## 使用讲解  
 1.主界面  
-![主界面]()  
+![主界面](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E9%A1%B9%E7%9B%AE%E9%97%A8%E6%88%B7%E4%B8%BB%E7%95%8C%E9%9D%A2.png?raw=true)  
 主界面中如果用户未登录，则最上方有登录/注册链接  
 
 2.登录/注册  
-![登录]()   
-![注册]()   
+![登录](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%99%BB%E5%BD%95.png?raw=true)   
+![注册](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E6%B3%A8%E5%86%8C.png?raw=true)   
 3.管理自己的项目    
-![管理项目]()  
+![管理项目](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%99%BB%E5%BD%95%E5%90%8E.png?raw=true)  
 在项目上鼠标右键，出现3个操作：查看、编辑、删除  
+![鼠标右键](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E9%BC%A0%E6%A0%87%E5%8F%B3%E9%94%AE.png?raw=true)   
 4.管理员界面  
-
+![管理员界面](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png?raw=true)  
 5.项目管理  
-![项目管理](https://github.com/youpanpan/code_generator/blob/master/screenshots/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86.png?raw=true)  
+管理系统已存在的项目
 6.权限管理  
 - 用户管理  
 管理系统用户，用户不允许注册，只能通过管理员添加  
 - 角色管理  
-系统已有的角色：项目管理员、开发人员、系统管理员  
-![角色管理](https://github.com/youpanpan/code_generator/blob/master/screenshots/%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86.png?raw=true)  
+系统已有的角色：开发人员、系统管理员  
+![角色管理](https://github.com/youpanpan/project_portal/blob/master/screenshots/%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86.png?raw=true)  
 - URL管理  
 URL包括系统菜单URL、功能URL  
-![URL管理](https://github.com/youpanpan/code_generator/blob/master/screenshots/URL%E7%AE%A1%E7%90%86.png?raw=true)  
+![URL管理](https://github.com/youpanpan/project_portal/blob/master/screenshots/URL%E7%AE%A1%E7%90%86.png?raw=true)  
